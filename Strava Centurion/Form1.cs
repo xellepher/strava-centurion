@@ -228,19 +228,19 @@ namespace StravaCenturion
                 this.LogMessage(string.Format("{0} segments without average speed.", this.dataSegments.Count(s => s.Speed.IsUnknown)));
             }
 
-            if (this.dataSegments.Any(s => s.Latitude.IsUnknown))
+            if (this.dataSegments.Any(s => s.Latitude.IsUnknown) || this.dataSegments.Any(s => s.Longitude.IsUnknown))
             {
-                this.LogMessage(string.Format("{0} segments without latitude.", this.dataSegments.Count(s => s.Latitude.IsUnknown)));
-                foreach(var segment in this.dataSegments.FindAll(s => s.Latitude.IsUnknown))
-                {
-                    this.LogMessage(string.Format("Segment Start Time: {0}", segment.Start.DateTime));
-                    this.LogMessage(string.Format("Segment End Time: {0}", segment.End.DateTime));
-                }
-            }
+                var segmentsWithNoLongitudeData = this.dataSegments.FindAll(s => s.Latitude.IsUnknown);
 
-            if (this.dataSegments.Any(s => s.Longitude.IsUnknown))
-            {
-                this.LogMessage(string.Format("{0} segments without longitude.", this.dataSegments.Count(s => s.Longitude.IsUnknown)));
+                for(int i = segmentsWithNoLongitudeData.Count - 1; i > 0 ; --i)
+                {
+                    var segmentA = segmentsWithNoLongitudeData[i - 1];
+                    var segmentB = segmentsWithNoLongitudeData[i];
+                    if (segmentA.End.DateTime.Equals(segmentB.Start.DateTime))
+                    {
+                        this.LogMessage(string.Format("DataPoint missing longitude/latitude data at: {0}", segmentA.End.DateTime));
+                    }
+                }
             }
 
             if (this.dataSegments.Any(s => s.Altitude.IsUnknown))
@@ -400,5 +400,10 @@ namespace StravaCenturion
             this.reality.Temperature = this.GetSafeDouble(this.temperature, this.reality.Temperature);
         }
         #endregion
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            logText.Clear();
+        }
     }
 }

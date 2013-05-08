@@ -52,6 +52,7 @@ namespace StravaCenturion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabTCX = new System.Windows.Forms.TabPage();
             this.logText = new System.Windows.Forms.TextBox();
@@ -84,6 +85,8 @@ namespace StravaCenturion
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.fileParserThread = new System.ComponentModel.BackgroundWorker();
             this.powerCalcThread = new System.ComponentModel.BackgroundWorker();
+            this.logTextContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl.SuspendLayout();
             this.tabTCX.SuspendLayout();
             this.tabReality.SuspendLayout();
@@ -91,6 +94,7 @@ namespace StravaCenturion
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.logTextContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -126,6 +130,7 @@ namespace StravaCenturion
             this.logText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.logText.ContextMenuStrip = this.logTextContextMenuStrip;
             this.logText.Location = new System.Drawing.Point(4, 34);
             this.logText.Multiline = true;
             this.logText.Name = "logText";
@@ -194,8 +199,8 @@ namespace StravaCenturion
             // csvOut
             // 
             this.csvOut.AutoSize = true;
-            this.csvOut.Checked = StravaCenturion.Properties.Settings.Default.csvOut;
-            this.csvOut.DataBindings.Add(new System.Windows.Forms.Binding("Checked", StravaCenturion.Properties.Settings.Default, "csvOut", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.csvOut.Checked = global::StravaCenturion.Properties.Settings.Default.csvOut;
+            this.csvOut.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::StravaCenturion.Properties.Settings.Default, "csvOut", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.csvOut.Location = new System.Drawing.Point(134, 18);
             this.csvOut.Name = "csvOut";
             this.csvOut.Size = new System.Drawing.Size(81, 17);
@@ -206,9 +211,9 @@ namespace StravaCenturion
             // acceleration
             // 
             this.acceleration.AutoSize = true;
-            this.acceleration.Checked = StravaCenturion.Properties.Settings.Default.incAccel;
+            this.acceleration.Checked = global::StravaCenturion.Properties.Settings.Default.incAccel;
             this.acceleration.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.acceleration.DataBindings.Add(new System.Windows.Forms.Binding("Checked", StravaCenturion.Properties.Settings.Default, "incAccel", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.acceleration.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::StravaCenturion.Properties.Settings.Default, "incAccel", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.acceleration.Location = new System.Drawing.Point(11, 17);
             this.acceleration.Name = "acceleration";
             this.acceleration.Size = new System.Drawing.Size(114, 17);
@@ -239,12 +244,12 @@ namespace StravaCenturion
             // 
             // temperature
             // 
-            this.temperature.DataBindings.Add(new System.Windows.Forms.Binding("Text", StravaCenturion.Properties.Settings.Default, "temperature", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.temperature.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::StravaCenturion.Properties.Settings.Default, "temperature", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.temperature.Location = new System.Drawing.Point(79, 23);
             this.temperature.Name = "temperature";
             this.temperature.Size = new System.Drawing.Size(100, 20);
             this.temperature.TabIndex = 1;
-            this.temperature.Text = StravaCenturion.Properties.Settings.Default.temperature;
+            this.temperature.Text = global::StravaCenturion.Properties.Settings.Default.temperature;
             this.temperature.TextChanged += new System.EventHandler(this.TemperatureTextChanged);
             // 
             // label6
@@ -288,12 +293,12 @@ namespace StravaCenturion
             // 
             // riderWeight
             // 
-            this.riderWeight.DataBindings.Add(new System.Windows.Forms.Binding("Text", StravaCenturion.Properties.Settings.Default, "riderWeight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.riderWeight.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::StravaCenturion.Properties.Settings.Default, "riderWeight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.riderWeight.Location = new System.Drawing.Point(103, 21);
             this.riderWeight.Name = "riderWeight";
             this.riderWeight.Size = new System.Drawing.Size(100, 20);
             this.riderWeight.TabIndex = 0;
-            this.riderWeight.Text = StravaCenturion.Properties.Settings.Default.riderWeight;
+            this.riderWeight.Text = global::StravaCenturion.Properties.Settings.Default.riderWeight;
             this.riderWeight.TextChanged += new System.EventHandler(this.RiderWeightTextChanged);
             // 
             // groupBox1
@@ -345,12 +350,12 @@ namespace StravaCenturion
             // 
             // bikeWeight
             // 
-            this.bikeWeight.DataBindings.Add(new System.Windows.Forms.Binding("Text", StravaCenturion.Properties.Settings.Default, "bikeWeight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.bikeWeight.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::StravaCenturion.Properties.Settings.Default, "bikeWeight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.bikeWeight.Location = new System.Drawing.Point(130, 123);
             this.bikeWeight.Name = "bikeWeight";
             this.bikeWeight.Size = new System.Drawing.Size(84, 20);
             this.bikeWeight.TabIndex = 6;
-            this.bikeWeight.Text = StravaCenturion.Properties.Settings.Default.bikeWeight;
+            this.bikeWeight.Text = global::StravaCenturion.Properties.Settings.Default.bikeWeight;
             this.bikeWeight.TextChanged += new System.EventHandler(this.BikeWeightTextChanged);
             // 
             // label3
@@ -364,12 +369,12 @@ namespace StravaCenturion
             // 
             // dragCoefficient
             // 
-            this.dragCoefficient.DataBindings.Add(new System.Windows.Forms.Binding("Text", StravaCenturion.Properties.Settings.Default, "coefficientDrag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.dragCoefficient.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::StravaCenturion.Properties.Settings.Default, "coefficientDrag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.dragCoefficient.Location = new System.Drawing.Point(129, 75);
             this.dragCoefficient.Name = "dragCoefficient";
             this.dragCoefficient.Size = new System.Drawing.Size(85, 20);
             this.dragCoefficient.TabIndex = 4;
-            this.dragCoefficient.Text = StravaCenturion.Properties.Settings.Default.coefficientDrag;
+            this.dragCoefficient.Text = global::StravaCenturion.Properties.Settings.Default.coefficientDrag;
             this.dragCoefficient.TextChanged += new System.EventHandler(this.DragCoefficientTextChanged);
             // 
             // label2
@@ -383,12 +388,12 @@ namespace StravaCenturion
             // 
             // frontalArea
             // 
-            this.frontalArea.DataBindings.Add(new System.Windows.Forms.Binding("Text", StravaCenturion.Properties.Settings.Default, "frontalArea", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.frontalArea.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::StravaCenturion.Properties.Settings.Default, "frontalArea", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.frontalArea.Location = new System.Drawing.Point(128, 49);
             this.frontalArea.Name = "frontalArea";
             this.frontalArea.Size = new System.Drawing.Size(84, 20);
             this.frontalArea.TabIndex = 2;
-            this.frontalArea.Text = StravaCenturion.Properties.Settings.Default.frontalArea;
+            this.frontalArea.Text = global::StravaCenturion.Properties.Settings.Default.frontalArea;
             this.frontalArea.TextChanged += new System.EventHandler(this.FrontalAreaTextChanged);
             // 
             // label1
@@ -401,12 +406,12 @@ namespace StravaCenturion
             // 
             // Crr
             // 
-            this.Crr.DataBindings.Add(new System.Windows.Forms.Binding("Text", StravaCenturion.Properties.Settings.Default, "Crr", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.Crr.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::StravaCenturion.Properties.Settings.Default, "Crr", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Crr.Location = new System.Drawing.Point(129, 19);
             this.Crr.Name = "Crr";
             this.Crr.Size = new System.Drawing.Size(84, 20);
             this.Crr.TabIndex = 0;
-            this.Crr.Text = StravaCenturion.Properties.Settings.Default.Crr;
+            this.Crr.Text = global::StravaCenturion.Properties.Settings.Default.Crr;
             this.Crr.TextChanged += new System.EventHandler(this.CrrTextChanged);
             // 
             // openFile
@@ -428,6 +433,20 @@ namespace StravaCenturion
             this.powerCalcThread.WorkerReportsProgress = true;
             this.powerCalcThread.DoWork += new System.ComponentModel.DoWorkEventHandler(this.PowerCalcThreadDoWork);
             this.powerCalcThread.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.PowerCalcThreadRunWorkerCompleted);
+            // 
+            // logTextContextMenuStrip
+            // 
+            this.logTextContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.logTextContextMenuStrip.Name = "logTextContextMenuStrip";
+            this.logTextContextMenuStrip.Size = new System.Drawing.Size(125, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.toolStripMenuItem1.Text = "Clear Log";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -452,6 +471,7 @@ namespace StravaCenturion
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.logTextContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -490,6 +510,8 @@ namespace StravaCenturion
         private System.Windows.Forms.CheckBox acceleration;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.CheckBox csvOut;
+        private System.Windows.Forms.ContextMenuStrip logTextContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 
